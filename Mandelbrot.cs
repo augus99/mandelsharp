@@ -16,11 +16,11 @@ namespace Mandelsharp {
             // Generate image
             this.Image.SetPixels((x, y) => {
                 if(BelongsToMandelbrotSet(this.Mapper.Map(x, y), out int iter))
-                    return Color.FromArgb(0, 0, 0);
-                return Color.FromArgb(255, 255, 255);
+                    return WikipediaColoring.Take(iter);
+                return Color.FromArgb(0, 0, 0);
             });
 
-            this.Image.Save("./res.jpg");
+            this.Image.Save("./res.png");
         }
 
         private static bool BelongsToMandelbrotSet(Complex c, out int iter) {
