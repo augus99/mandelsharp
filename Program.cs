@@ -8,7 +8,15 @@ namespace Mandelsharp {
                 if(o.Size < 32) Exit("Size must be at least 32px.");
                 else {
                     // Proccess args
-                    new Mandelbrot(o.Size, o.Size).Generate(o.Output);
+                    Mandelbrot mdb = new Mandelbrot(o.Size, o.Size);
+
+                    if(o.Zoom > 1) mdb.Zoom(o.X, o.Y, o.Zoom);
+                    else if(o.CartasianZoom > 1) mdb.ZoomCartesian(o.X, o.Y, o.CartasianZoom);
+
+                    Console.WriteLine(o.Zoom);
+                    Console.WriteLine(o.CartasianZoom);
+
+                    mdb.Generate(o.Output);
                 }
             });
         }

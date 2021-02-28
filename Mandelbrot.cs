@@ -23,6 +23,12 @@ namespace Mandelsharp {
             this.Image.Save(output);
         }
 
+        public void Zoom(double x, double y, double ratio = 1.0d)
+            => Mapper.Zoom(x, y, ratio);
+
+        public void ZoomCartesian(double x, double y, double ratio = 1.0d)
+            => Mapper.ZoomCartasian(x, y, ratio);
+
         private static bool BelongsToMandelbrotSet(Complex c, out int iter) {
             Complex z = c;
             for(iter = 0; iter < MAXITERS; iter++) {
