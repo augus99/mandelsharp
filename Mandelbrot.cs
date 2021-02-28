@@ -1,12 +1,26 @@
+using System.Drawing;
+
 namespace Mandelsharp {
     public sealed class Mandelbrot {
         private const int MAXITERS = 0xC8;
 
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+        private Image Image { get; }
+        private Mapper Mapper { get; }
+
+        public Mandelbrot(int width, int height) {
+            this.Image = new Image(width, height);
+            this.Mapper = new Mapper(-1.5, 1.5, -2, 1, width, height);
+        }
 
         public void Generate() {
             // Generate image
+            this.Image.SetPixels((x, y) => {
+                if(BelongsToMandelbrotSet(this.Mapper.Map(x, y), out int iter))
+                    return Color.FromArgb(0, 0, 0);
+                return Color.FromArgb(255, 255, 255);
+            });
+
+            this.Image.Save("./res.jpg");
         }
 
         private static bool BelongsToMandelbrotSet(Complex c, out int iter) {
