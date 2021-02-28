@@ -8,7 +8,7 @@ namespace Mandelsharp {
                 if(o.Size < 32) Exit("Size must be at least 32px.");
                 else {
                     // Proccess args
-                    new Mandelbrot(o.Size, o.Size).Generate();
+                    new Mandelbrot(o.Size, o.Size).Generate(o.Output);
                 }
             });
         }

@@ -12,7 +12,7 @@ namespace Mandelsharp {
             this.Mapper = new Mapper(-1.5, 1.5, -2, 1, width, height);
         }
 
-        public void Generate() {
+        public void Generate(string output) {
             // Generate image
             this.Image.SetPixels((x, y) => {
                 if(BelongsToMandelbrotSet(this.Mapper.Map(x, y), out int iter))
@@ -20,7 +20,7 @@ namespace Mandelsharp {
                 return Color.FromArgb(0, 0, 0);
             });
 
-            this.Image.Save("./res.png");
+            this.Image.Save(output);
         }
 
         private static bool BelongsToMandelbrotSet(Complex c, out int iter) {
