@@ -5,7 +5,7 @@ namespace Mandelsharp {
         [Option('s', "size", Required = false, HelpText = "Set result image width and height.")] 
         public int Size { get; set; } = 512;
 
-        [Option('o', "output", Required = false, HelpText = "Set result image output directory.")] 
+        [Option('o', "output", Required = false, HelpText = "Set result image output path.")] 
         public string Output { get; set; } = "./mandelbrot.png";
 
         [Option('x', "xcoord", Required = false, HelpText = "Set x coordinate to zoom in.")]
