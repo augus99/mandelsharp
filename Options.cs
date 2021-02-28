@@ -6,7 +6,7 @@ namespace Mandelsharp {
         public int Size { get; set; } = 512;
 
         [Option('o', "output", Required = false, HelpText = "Set result image output directory.")] 
-        public string Output { get; set; } = "./mandelbrot.jpg";
+        public string Output { get; set; } = "./mandelbrot.png";
 
         [Option('x', "xcoord", Required = false, HelpText = "Set x coordinate to zoom in.")]
         public int X { get; set; } = -1;
