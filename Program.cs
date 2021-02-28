@@ -13,9 +13,6 @@ namespace Mandelsharp {
                     if(o.Zoom > 1) mdb.Zoom(o.X, o.Y, o.Zoom);
                     else if(o.CartasianZoom > 1) mdb.ZoomCartesian(o.X, o.Y, o.CartasianZoom);
 
-                    Console.WriteLine(o.Zoom);
-                    Console.WriteLine(o.CartasianZoom);
-
                     mdb.Generate(o.Output);
                 }
             });
