@@ -5,6 +5,7 @@ namespace Mandelsharp {
         public double A { get; private set; }
         public double B { get; private set; }
         public double Magnitude => Math.Sqrt((A * A) + (B * B));
+        public double UnsqrtMangitude => A * A + B * B;
 
         public Complex(double a, double b) {
             this.A = a;

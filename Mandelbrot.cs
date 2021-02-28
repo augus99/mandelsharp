@@ -13,7 +13,7 @@ namespace Mandelsharp {
             Complex z = c;
             for(iter = 0; iter < MAXITERS; iter++) {
                 z = z * z + c;
-                if(z.Magnitude > 2) 
+                if(z.UnsqrtMangitude > 4) 
                     return true;
             }
             return false;
